@@ -1,0 +1,24 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    Enter data:<br>
+    {% if error is defined %}
+        <div class="error error_{{ error.type }}">
+            {{ error.text }}
+        </div>
+    {% endif %}
+    <form method="post">
+        <input type="email" name="email" placeholder="e-Mail"><br>
+        <input type="text" name="fio" placeholder="FIO"><br>
+        <input type="text" name="address" placeholder="Address"><br>
+        Choose some goods:<br>
+        {% for good in goods %}
+            <div class="good">
+                {{ good.title }}<br>
+                {{ good.price }} (rub.) <input type="number" min="0" name="goods[{{ good.id }}]" placeholder="Count (>0)">
+            </div>
+        {% endfor %}
+        <input type="submit" value="Confirm">
+    </form>
+
+{% endblock %}

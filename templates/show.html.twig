@@ -1,0 +1,10 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+    Orders:<br>
+    {% for order in orders %}
+        e-Mail: {{ order.email }}<br>
+        fio: {{ order.fio }}<br>
+        address: {{ order.address }}<br>
+        cost: {{ order.cost }}<hr>
+    {% endfor %}
+{% endblock %}
